@@ -1,0 +1,158 @@
+body {
+    background-color: #101010;
+    /* background-image: url(https://64.media.tumblr.com/fd0e871d6315e4625e6dac52ee0ae93c/tumblr_inline_n25fc5fAKv1qhwjx8.jpg), url(https://64.media.tumblr.com/9918c6e8c35ec72202823c80be2cf654/tumblr_inline_n25fbtRehS1qhwjx8.jpg); */    background-repeat: repeat, repeat;
+    background-image: url(https://64.media.tumblr.com/1061954fcd7cb725dae4b956662e45f2/tumblr_inline_mns74aF5iR1qz4rgp.gif);
+    background-size: 100px 80px;
+    cursor: url(https://ani.cursors-4u.net/cursors/cur-13/cur1157.png), auto !important;
+}
+
+marquee {
+    color: #FFFFFF;
+    font-family: 'Helvetica';
+    font-weight: 700;
+    font-size: 22px;
+    bottom: 0;
+    right: 0;
+}
+
+div.newstape_container{
+    background-color: #a0b0ef29;;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    bottom: 0;
+    left: 0;
+    border: 5px;
+    border-color: #a6a6a6;
+    border-style: ridge;
+    margin: 5px;
+    max-height: 10%;
+}
+div.news_badge_container{
+    background-color: white;
+    border-style: dotted;
+    padding: 5px;
+    display: flex;
+}
+#time{
+margin: 0px;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+align-items: end;
+padding-left: 5px;
+
+}
+
+div.sidebar{
+    width: 160px; 
+    background-color: cornsilk;
+    display: flex;
+    border: 10px;
+    flex-direction: column;
+    margin-top: 15px;
+    border: 8px;
+    border-style: inset;
+}
+a.sidebar_items{
+    margin: 5px;
+    white-space: nowrap
+}
+#guestbook{background-image: url(/static/guestbook_still.png)}
+#guestbook:hover{background-image: url(/static/guestbook.gif)}
+
+#clips{background-image: url(/static/flaming_gun.gif)}
+#clips:hover{background-image: url(/static/flaming_gun.gif)}
+
+div.sidebar_image_container{
+    background-color: gray;
+    margin: 5px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    align-self: center;
+    border: 5px;
+    border-style: ridge;
+    height: 113px;
+    width: -moz-available;
+}
+a.sidebar_image{
+    height: 100%;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+div.main{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-left: 10%;
+    margin-right: 10%;
+    }
+    
+div.middle{
+    height: auto;
+    width: 100%;
+    background-color: aliceblue;
+    background-image: url(skull_bg.gif);
+    padding:20px;
+    padding-top: 0px;
+    margin: 15px;
+    border: 8px;
+    border-style: inset;
+}
+marquee.flaming_banner{
+    margin:"5px";
+    behavior: "alternate";
+
+}
+span.newstape{
+    padding-right: 200px;
+}
+div.lottery_div{
+    color: white;
+}
+table{
+    border: 5px;
+    border-color: blueviolet;
+    border-style: groove;
+    background-color: black;
+}
+th{
+    font-size: 22px;
+    font-family: 'Arial Black';
+    background-image: linear-gradient(black, gray, black);
+    filter:
+        drop-shadow(2px 2px silver)
+        drop-shadow(1px 1px gray);
+}
+.multiline {
+    white-space: pre-line;
+  }
+div.title{
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    margin:auto;
+    margin-bottom: 10px;
+}
+h1.title_banner {
+    width: 50%;
+    margin: 0 auto;
+
+    width: fit-content;
+    text-align: center;
+    top: 15px;
+
+    font-family: 'Crete Round';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 96px;    
+    line-height: 122px;
+
+    color: #FFFFFF;
+
+    border: 10px solid #0E00B1;
+    text-shadow: -7px 4px 0px #0C23EF;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
