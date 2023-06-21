@@ -154,5 +154,24 @@ h1.title_banner {
     text-shadow: -7px 4px 0px #0C23EF;
     margin-left: 10px;
     margin-right: 10px;
+}
+div.sidebar_gif{
+    display: flex;
+    align-items: center;
+}
 
+@keyframes glow{
+    from{
+    }
+    to{
+    filter:drop-shadow(10px 10px 14px #44d)
+    }
+}
+
+h1.title_banner:hover{
+    animation-duration: 2.5s;
+    animation-name: glow;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
 }
