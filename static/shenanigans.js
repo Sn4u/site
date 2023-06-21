@@ -61,6 +61,34 @@ function flash(what, times=9){
     }
 }
 
+const div_new = document.getElementById("new");
+
+let cycle_counter = 0;
+
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+
+function cycle_gif(name){
+    const images = new Array()
+        for (let i=1;i<12;i++){
+            images.push(`static/${name}/${name}${i}.gif`)
+        }
+    shuffleArray(images)
+    const img = document.createElement("img");
+
+    let div = document.getElementById(name)
+    div.appendChild(img)
+    img.setAttribute("height", "18px")
+    setInterval(function(){img.setAttribute("src", images[cycle_counter % images.length]); cycle_counter++}, 1000)
+
+}
+cycle_gif("new")
 let spinners = new Array()
 for (let i = 1; i < 4; i++) { 
     let spinner = document.getElementById("spinner_" + i)
