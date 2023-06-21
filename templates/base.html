@@ -1,85 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Site</title>
-    <link rel="stylesheet" href="static/style.css">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Site</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
 
-  <!-- <script src="index.js"></script> -->
-  <body>
+<!-- <script src="index.js"></script> -->
 
-    <div class="title">
-      <img src="static/eye.gif">
-      <h1 class="title_banner">Tytus' Homepage</h1>
-      <img src="static/eye.gif">
+<body>
+
+  <div class="title">
+    <img src="static/eye.gif">
+    <h1 class="title_banner">Tytus' Homepage</h1>
+    <img src="static/eye.gif">
+  </div>
+
+  <div class="newstape_container">
+    <div class="news_badge_container">
+      <img src="{{url_for('static', filename='news.gif')}}" margin="5px">
+      <h4 id="time"> </h4>
     </div>
+    <marquee scrollamount="11" ; onmouseover="this.stop();" onmouseout="this.start();">
+      {%for i in newsitems%}
+      <span class="newstape">{{ i }}</span>
+      {%endfor%}
+    </marquee>
+  </div>
 
-    <div class="newstape_container">
-      <div class="news_badge_container">
-        <img src="{{url_for('static', filename='news.gif')}}" margin="5px">
-        <h4 id="time"> </h4>
+
+
+  <div class="main">
+    <nav class="sidebar">
+      <div class="sidebar_gif" id="contact">
+        <a class="sidebar_items" href="#">Contact</a>
+        <img src="/static/mail.gif" height="18px">
       </div>
-        <marquee scrollamount="11"; onmouseover="this.stop();" onmouseout="this.start();">
-          {%for i in newsitems%}
-          <span class="newstape">{{ i }}</span>
-          {%endfor%}
-      </marquee>
-    </div>
-   
-      
-
-      <div class="main">
-        <div class="sidebar">
-          <div class="sidebar_gif" id="contact">
-            <a class="sidebar_items" href="#">Contact</a>
-            <img src="/static/mail.gif" height="18px">
-          </div>
-            <a class="sidebar_items" href="#">Cosy Shack</a>
-            <div class="sidebar_gif" id="new">
-              <a class="sidebar_items" href="#">Get NFT</a>
-            </div>
+      <a class="sidebar_items" href="#">Cosy Shack</a>
+      <div class="sidebar_gif" id="new">
+        <a class="sidebar_items" href="#">Get NFT</a>
+      </div>
 
 
-            <!-- <div id="clips" class="sidebar_image_container">
+      <!-- <div id="clips" class="sidebar_image_container">
               <a class="sidebar_items sidebar_image" href="#">Epic Clips</a>
             </div> -->
-            
-            <div id="guestbook" class="sidebar_image_container">
-              <a class="sidebar_items sidebar_image" href="#">Sign The Guestbook</a>
-            </div>
+
+      <div id="guestbook" class="sidebar_image_container">
+        <a class="sidebar_items sidebar_image" href="#">Sign The Guestbook</a>
+      </div>
+    </nav>
+
+    <div class="middle">
+      <marquee class="flaming_banner" behavior=alternate><img src="static/someeviltext.gif" class="flaming_banner">
+      </marquee>
+      <div class="lottery_div">
+        <p class="multiline">
+          Spin the wheel, let fate decide,
+          Will luck be on your haunting side?
+          A number evil, steeped in lore,
+          Unlock its secret, to the dungeon's door.
+        </p>
+        <button class="lottery" onclick='lottery()'>Generate number</button>
+        <input type="range" id="volume-slider">
+        <div class="lottery_spinner">
+          <table id="spinner_table">
+            <tr>
+              <th id="spinner_1"></th>
+              <th id="spinner_2"></th>
+              <th id="spinner_3"></th>
+            </tr>
+          </table>
+
         </div>
-
-        <div class="middle">
-            <marquee class="flaming_banner" behavior=alternate><img src="static/someeviltext.gif" class="flaming_banner"></marquee>
-            <div class="lottery_div">
-              <p class="multiline">
-                Spin the wheel, let fate decide,
-                Will luck be on your haunting side?
-                A number  evil, steeped in lore,
-                Unlock its secret, to the dungeon's door.
-              </p>
-              <button class="lottery" onclick='lottery()'>Generate number</button>
-              <input type="range" id="volume-slider">
-              <div class="lottery_spinner">
-                <table id="spinner_table">
-                  <tr>
-                    <th id="spinner_1"></th><th id="spinner_2"></th><th id="spinner_3"></th>
-                  </tr>
-                </table>
-
-              </div>
-            <div>
+        <div>
 
         </div>
+      </div>
     </div>
     <div class="footer">
       <p>Copyright © 2023 by b0nes. All rights reserved</p>
     </div>
-    </body>
-  </body>
+</body>
+</body>
+
 </html>
 
 <script src="{{url_for('static', filename='shenanigans.js')}}"></script>
