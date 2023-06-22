@@ -14,13 +14,14 @@ function lottery(max){
         return
     }
     spinning = true
+    const spin_time = 500
     spin_audio.volume = document.getElementById("volume-slider").value / 100
     spin_audio.play();
 
     let num_spun = ""
     
     for (let i=0; i<spinners.length; i++){
-        num_spun += setTimeout(function(){spin_spinner(spinners[i])}, i*500)
+        num_spun += setTimeout(function(){spin_spinner(spinners[i])}, i*spin_time)
     }
 
     if (num_spun == Math.floor(Math.random()*1000)){
@@ -38,7 +39,7 @@ function lottery(max){
         const lottery_div = document.getElementsByClassName("lottery_div")[0]
         lottery_div.appendChild(button)
     } 
-    spinning = false
+    setTimeout(function(){spinning = false}, spinners.length*spin_time)
 }
 
 function spin_spinner(spinner){
