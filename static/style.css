@@ -1,3 +1,12 @@
+@font-face {
+    font-family: "Crete Round";
+    src: url("fonts/CreteRound-Regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Digi Grotesk";
+    src: url("fonts/Digi\ Grotesk\ Bold\ Condensed\ Regular.ttf") format("truetype");
+}
+
 body {
     background-color: #101010;
     /* background-image: url(https://64.media.tumblr.com/fd0e871d6315e4625e6dac52ee0ae93c/tumblr_inline_n25fc5fAKv1qhwjx8.jpg), url(https://64.media.tumblr.com/9918c6e8c35ec72202823c80be2cf654/tumblr_inline_n25fbtRehS1qhwjx8.jpg); */    background-repeat: repeat, repeat;
@@ -86,18 +95,47 @@ div.main{
     align-items: flex-start;
     margin-left: 10%;
     margin-right: 10%;
+    margin-bottom: 60px;
     }
     
 div.middle{
+    display: flex;
+    flex-direction: column;
+}
+div.base{
     height: auto;
-    width: 100%;
-    background-color: aliceblue;
-    background-image: url(skull_bg.gif);
     padding:20px;
     padding-top: 0px;
     margin: 15px;
     border: 8px;
     border-style: inset;
+}
+div.section1{
+    background-image: url(skull_bg.gif);
+}
+div.section2{
+    background-image: url(cloud.jpg);
+    background-repeat: repeat;
+    font-family: 'times new roman';
+    color: white;
+    border-color: azure;
+    border-style: groove;
+    background-size: cover;
+}
+.section2 .title{
+    font-weight: 900;
+    font-family: "Digi Grotesk";
+    letter-spacing: 0.15rem;
+    text-align: center;
+    color:white;
+    text-shadow:
+        -4px 4px #ef3550,
+        -8px 8px #f48fb1,
+        -12px 12px #7e57c2,
+        -16px 16px #2196f3,
+        -20px 20px #26c6da;
+
+
 }
 marquee.flaming_banner{
     margin:"5px";
@@ -133,6 +171,7 @@ div.title{
     align-items: center;
     margin:auto;
     margin-bottom: 10px;
+    align:center;
 }
 h1.title_banner {
     width: 50%;
@@ -182,4 +221,12 @@ h1.title_banner:hover{
     animation-direction: alternate;
     animation-iteration-count: infinite;
     animation-timing-function: ease;
+}
+
+div.footer{
+    color: #FFFFFF;
+    font-weight: bolder;
+    padding: 10px;
+    height:auto;
+    text-align: center;
 }
