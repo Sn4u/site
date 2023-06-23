@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,43 +19,40 @@
     <img src="static/eye.gif">
   </div>
 
-  <div class="newstape_container">
-    <div class="news_badge_container">
-      <img src="{{url_for('static', filename='news.gif')}}" margin="5px">
-      <h4 id="time"> </h4>
-    </div>
-    <marquee scrollamount="11" ; onmouseover="this.stop();" onmouseout="this.start();">
-      {%for i in newsitems%}
-      <span class="newstape">{{ i }}</span>
-      {%endfor%}
-    </marquee>
-  </div>
-
-
 
   <div class="main">
-    <nav class="sidebar">
-      <div class="sidebar_gif" id="contact">
-        <a class="sidebar_items" href="#">Contact</a>
-        <img src="/static/mail.gif" height="18px">
-      </div>
-      <a class="sidebar_items" href="#">Cosy Shack</a>
-      <div class="sidebar_gif" id="new">
-        <a class="sidebar_items" href="#">Get NFT</a>
-      </div>
+    <div class="left">
+      <nav class="sidebar">
+        <div class="sidebar_gif" id="contact">
+          <a class="sidebar_items" href="#">Contact</a>
+          <img src="/static/mail.gif" height="18px">
+        </div>
+        <a class="sidebar_items" href="#">Cosy Shack</a>
+        <div class="sidebar_gif" id="new">
+          <a class="sidebar_items" href="#">Get NFT</a>
+        </div>
 
 
-      <!-- <div id="clips" class="sidebar_image_container">
+        <!-- <div id="clips" class="sidebar_image_container">
               <a class="sidebar_items sidebar_image" href="#">Epic Clips</a>
             </div> -->
 
-      <div id="guestbook" class="sidebar_image_container">
-        <a class="sidebar_items sidebar_image" href="#">Sign The Guestbook</a>
-      </div>
-    </nav>
+        <div id="guestbook" class="sidebar_image_container">
+          <a class="sidebar_items sidebar_image" href="#">Sign The Guestbook</a>
+        </div>
+      </nav>
+      <div id="nord" class="nord">
+        <div id="nord_div">
 
-    <div class="middle">
-      <div class="base section1">
+        </div>
+        <img src="/static/nord.png">
+        <p>Your IP address and personal information has been exposed!</p>
+        <p>Your ip: <b>{{ip}}</b></p>
+      </div>
+    </div>
+  
+  <div class="middle">
+    <div class="base section1">
       <marquee class="flaming_banner" behavior=alternate><img src="static/someeviltext.gif" class="flaming_banner">
       </marquee>
       <div class="lottery_div">
@@ -85,15 +83,28 @@
       <h1 class="title">
         i wrote a poem for you
       </H1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut esse voluptatum harum reiciendis illum impedit, dolorem cumque, saepe culpa, natus qui numquam? Ea excepturi recusandae suscipit reprehenderit repellat ducimus nulla.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut esse voluptatum harum reiciendis illum impedit,
+        dolorem cumque, saepe culpa, natus qui numquam? Ea excepturi recusandae suscipit reprehenderit repellat
+        ducimus nulla.</p>
 
     </div>
     <div class="footer">
       <p>Copyright © 2023 by b0nes. All rights reserved</p>
     </div>
-    </div>
-    
-</body>
+  </div>
+</div>
+<div class="newstape_container">
+  <div class="news_badge_container">
+    <img src="{{url_for('static', filename='news.gif')}}" margin="5px">
+    <h4 id="time"> </h4>
+  </div>
+  <marquee scrollamount="11" ; onmouseover="this.stop();" onmouseout="this.start();">
+    {%for i in newsitems%}
+    <span class="newstape">{{ i }}</span>
+    {%endfor%}
+  </marquee>
+</div>
+
 </body>
 
 </html>

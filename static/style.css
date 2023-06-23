@@ -55,7 +55,6 @@ nav.sidebar{
     width: 160px; 
     background-color: cornsilk;
     display: flex;
-    border: 10px;
     flex-direction: column;
     margin-top: 15px;
     border: 8px;
@@ -89,10 +88,28 @@ a.sidebar_image{
     height: 100%;
     width: 100%;
 }
+div.left{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0px;
+    gap: 20px;
+}
+div.nord{
+    color: #0E00B1;
+    background-color: white;
+    padding: 5px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 15px;
+    scroll-behavior: auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 180px;
+    text-align: center;
+}
 div.main{
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 60px;
@@ -121,6 +138,7 @@ div.section2{
     border-color: azure;
     border-style: groove;
     background-size: cover;
+    height: 600px;
 }
 .section2 .title{
     font-weight: 900;
@@ -171,7 +189,6 @@ div.title{
     align-items: center;
     margin:auto;
     margin-bottom: 10px;
-    align:center;
 }
 h1.title_banner {
     width: 50%;

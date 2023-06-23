@@ -1,11 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from newsgetter import get_news
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template("base.html", newsitems=get_news())
+    return render_template("base.html", newsitems=get_news(), ip=request.remote_addr)
 
 @app.route("/nft")
 def nft():
