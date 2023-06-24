@@ -52,7 +52,6 @@ padding-left: 5px;
 }
 
 nav.sidebar{
-    width: 160px; 
     background-color: cornsilk;
     display: flex;
     flex-direction: column;

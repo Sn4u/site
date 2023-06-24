@@ -86,7 +86,7 @@ function cycle_gif(name) {
     let div = document.getElementById(name)
     div.appendChild(img)
     img.setAttribute("height", "18px")
-    setInterval(function () {img.setAttribute("src", images[cycle_counter % images.length]); cycle_counter++ }, 1000)
+    setInterval(function () { img.setAttribute("src", images[cycle_counter % images.length]); cycle_counter++ }, 1000)
 
 }
 cycle_gif("new")
@@ -98,20 +98,97 @@ for (let i = 1; i < 4; i++) {
     spinners.push(spinner)
 }
 
-function nord() {
+function nord_cycle_titles() {
     fetch("./static/vpn_slogans.txt").then(resp => resp.text()).then(y => {
         const slogans = y.split('\n')
         shuffleArray(slogans)
         const title = document.createElement("h2");
         const nord_div = document.getElementById("nord_div")
-    
+
         nord_div.appendChild(title)
         let title_index = 0
-        title.innerHTML=slogans[title_index]
+        title.innerHTML = slogans[title_index]
         title_index++
-        setInterval(function(){title.innerHTML=slogans[title_index%slogans.length]; title_index++}, 3300)
+        setInterval(function () { title.innerHTML = slogans[title_index % slogans.length]; title_index++ }, 3300)
     })
 
 }
 
-nord()
+function* cycle_text(text){
+    let i = 0
+    shuffleArray(text)
+    while (true){
+         yield text[i%text.length]
+        i++
+    }
+}
+
+function nord_speech() {
+
+    async function getSpeech() {
+        // https://blog.monotonous.org/2021/11/15/speechSynthesis-getVoices/
+
+        const GET_VOICES_TIMEOUT = 2000; // two second timeout
+
+        let voices = window.speechSynthesis.getVoices();
+        if (voices.length) {
+            return voices;
+        }
+
+        let voiceschanged = new Promise(
+            r => speechSynthesis.addEventListener(
+                "voiceschanged", r, { once: true }));
+
+        let timeout = new Promise(r => setTimeout(r, GET_VOICES_TIMEOUT));
+
+        // whatever happens first, a voiceschanged event or a timeout.
+        await Promise.race([voiceschanged, timeout]);
+
+        return window.speechSynthesis.getVoices();
+    }
+    async function getText(filename){
+        let phrase_arr = fetch("./static/"+filename+".txt").then(resp => resp.text()).then(text => { //no idea whats happening here or why this works
+            const phrases = text.split('\n')
+            return phrases
+        })
+        return phrase_arr
+    }
+    function* toggle_speak(v, phrases, words) {
+        let ip = document.getElementById("ip").innerHTML
+
+        const cycle_voice = cycle_text(v)
+        let cycle_phrase = cycle_text(phrases)
+        let cycle_word = cycle_text(words)
+        yield 
+        while (true) {
+            const interval_id = setInterval(function(){
+                let discount_num = Math.floor(Math.random()*101)
+                const utterThis = new SpeechSynthesisUtterance(`your ip is: ${ip}. You must protect your pc with Nord vpn. Sign up now for 60% off with the code:${cycle_word.next().value}${discount_num}. ${cycle_phrase.next().value}`);
+                utterThis.rate = 5
+
+                utterThis.voice = cycle_voice.next().value
+                window.speechSynthesis.speak(utterThis);
+
+            },1000)
+            yield
+            window.speechSynthesis.cancel()
+            clearInterval(interval_id)
+            yield
+        }
+    }
+    let x = Promise.all([getSpeech(), getText("vpn_phrases"), getText("words")])
+    x.then(voices => {
+        const gen = toggle_speak(voices[0],voices[1], voices[2])
+        gen.next()
+        const nord = document.getElementById("nord")
+        nord.onmouseleave = function(){gen.next()}
+        nord.onmouseenter = function(){gen.next()}
+    }
+    )
+}
+
+
+
+nord_cycle_titles()
+nord_speech()
+

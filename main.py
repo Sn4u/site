@@ -9,8 +9,8 @@ def home():
 
 @app.route("/nft")
 def nft():
-    return render_template("nft.html", newsitems=get_news())
+    return render_template("nft.html")
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='192.168.178.65', debug=True)
