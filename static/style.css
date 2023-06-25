@@ -192,8 +192,12 @@ marquee.flaming_banner{
     behavior: "alternate";
 
 }
-span.newstape{
+a.newstape{
     padding-right: 200px;
+    color: inherit;
+    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-style: dotted;
 }
 div.lottery_div{
     color: white;

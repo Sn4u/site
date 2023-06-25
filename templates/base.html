@@ -112,7 +112,7 @@
     </div>
     <marquee scrollamount="11" ; onmouseover="this.stop();" onmouseout="this.start();">
       {%for i in newsitems%}
-      <span class="newstape">{{ i }}</span>
+      <a class="newstape" href= "{{ i[1] }}">{{ i[0] }}</a>
       {%endfor%}
     </marquee>
   </div>
