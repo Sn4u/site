@@ -11,6 +11,9 @@ def home():
 def nft():
     return render_template("nft.html")
 
+@app.route("/guestbook")
+def guestbook():
+    return render_template("guestbook .html")
 
 if __name__ == "__main__":
     app.run(host='192.168.178.65', debug=True)
