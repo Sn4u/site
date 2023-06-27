@@ -16,4 +16,5 @@ def guestbook():
     return render_template("guestbook .html")
 
 if __name__ == "__main__":
-    app.run(host='192.168.178.65', debug=True)
+    extra_files = ["static/style.css", "templates/base.html"]
+    app.run(host='192.168.178.65', debug=True, extra_files=extra_files)

@@ -5,9 +5,29 @@ document.getElementById("time").textContent = datetime; // represent on html pag
 let has_won = false
 let spinning = false
 
-var spin_audio = new Audio('static/spin.mp3');
-var win_audio = new Audio('static/win.mp3');
-spin_audio.play();
+const spin_audio = new Audio('static/spin.mp3');
+const win_audio = new Audio('static/win.mp3');
+
+let muted = false
+const mute_button = document.getElementById("mute")
+
+function mute(reset_slider = false) {
+    muted = !muted;
+    const vol_slider = document.getElementById("volume-slider")
+    let vol_value = vol_slider.value
+    vol_slider.onchange = () => { if (muted) { mute(reset_slider = true) } }
+    if (muted) {
+        mute_button.disabled = true
+        vol_slider.value = 0
+        window.speechSynthesis.pause()
+    }
+    else {
+        mute_button.disabled = false
+    }
+    if (reset_slider) {
+        vol_slider.value = vol_value
+    }
+}
 
 function lottery(max) {
     if (has_won || spinning) {
@@ -16,7 +36,9 @@ function lottery(max) {
     spinning = true
     const spin_time = 500
     spin_audio.volume = document.getElementById("volume-slider").value / 100
-    spin_audio.play();
+    if (!muted) {
+        spin_audio.play();
+    }
 
     let num_spun = ""
 
@@ -28,8 +50,9 @@ function lottery(max) {
         has_won = true
 
         win_audio.volume = document.getElementById("volume-slider").value / 100
-        win_audio.play();
-
+        if (!muted) {
+            win_audio.play()
+        }
         flash(document.getElementById("spinner_table"))
 
         const button = document.createElement("button")
@@ -114,11 +137,11 @@ function nord_cycle_titles() {
 
 }
 
-function* cycle_text(text){
+function* cycle_text(text) {
     let i = 0
     shuffleArray(text)
-    while (true){
-         yield text[i%text.length]
+    while (true) {
+        yield text[i % text.length]
         i++
     }
 }
@@ -146,8 +169,8 @@ function nord_speech() {
 
         return window.speechSynthesis.getVoices();
     }
-    async function getText(filename){
-        let phrase_arr = fetch("./static/"+filename+".txt").then(resp => resp.text()).then(text => { //no idea whats happening here or why this works
+    async function getText(filename) {
+        let phrase_arr = fetch("./static/" + filename + ".txt").then(resp => resp.text()).then(text => { //no idea whats happening here or why this works
             const phrases = text.split('\n')
             return phrases
         })
@@ -159,36 +182,43 @@ function nord_speech() {
         const cycle_voice = cycle_text(v)
         let cycle_phrase = cycle_text(phrases)
         let cycle_word = cycle_text(words)
-        yield 
+        yield
         while (true) {
-            const interval_id = setInterval(function(){
-                let discount_num = Math.floor(Math.random()*101)
-                const utterThis = new SpeechSynthesisUtterance(`your ip is: ${ip}. You must protect your pc with Nord vpn. Sign up now for 60% off with the code:${cycle_word.next().value}${discount_num}. ${cycle_phrase.next().value}`);
-                utterThis.rate = 5
+            const interval_id = setInterval(function () {
+                if (window.speechSynthesis.paused && !muted) {
+                    window.speechSynthesis.resume()
+                }
+                else {
+                    console.log(window.speechSynthesis)
+                    const utterThis = new SpeechSynthesisUtterance(`your ip is: ${ip}. You must protect your pc with Nord vpn. Sign up now for 60% off with the code:${cycle_word.next().value}. ${cycle_phrase.next().value}`);
+                    utterThis.rate = 5
 
-                utterThis.voice = cycle_voice.next().value
-                window.speechSynthesis.speak(utterThis);
-
-            },1000)
+                    utterThis.voice = cycle_voice.next().value
+                    if (!muted) {
+                        window.speechSynthesis.speak(utterThis);
+                    }
+                }
+            }, 1000)
             yield
-            window.speechSynthesis.cancel()
+            window.speechSynthesis.pause()
             clearInterval(interval_id)
             yield
+
         }
     }
     let x = Promise.all([getSpeech(), getText("vpn_phrases"), getText("words")])
     x.then(voices => {
-        const gen = toggle_speak(voices[0],voices[1], voices[2])
+        const gen = toggle_speak(voices[0], voices[1], voices[2])
         gen.next()
         const nord = document.getElementById("nord")
-        nord.onmouseleave = function(){gen.next()}
-        nord.onmouseenter = function(){gen.next()}
+        nord.onmouseleave = function () { gen.next() }
+        nord.onmouseenter = function () { gen.next() }
     }
     )
 }
 
-
-
-nord_cycle_titles()
-nord_speech()
+window.onload = () => {
+    nord_cycle_titles();
+    nord_speech();
+} 
 

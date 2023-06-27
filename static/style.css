@@ -10,9 +10,13 @@
 body {
     background-color: #101010;
     /* background-image: url(https://64.media.tumblr.com/fd0e871d6315e4625e6dac52ee0ae93c/tumblr_inline_n25fc5fAKv1qhwjx8.jpg), url(https://64.media.tumblr.com/9918c6e8c35ec72202823c80be2cf654/tumblr_inline_n25fbtRehS1qhwjx8.jpg); */    background-repeat: repeat, repeat;
-    background-image: url(https://64.media.tumblr.com/1061954fcd7cb725dae4b956662e45f2/tumblr_inline_mns74aF5iR1qz4rgp.gif);
+    background-image: url(stars_bg.gif);
     background-size: 100px 80px;
     cursor: url(https://ani.cursors-4u.net/cursors/cur-13/cur1157.png), auto !important;
+}
+div.sound_control{
+    background-color: cadetblue;
+    padding: 5px;
 }
 
 marquee {
@@ -103,6 +107,7 @@ a.sidebar_image{
     height: 100%;
     width: 100%;
 }
+
 div.left{
     display: flex;
     flex-direction: column;
@@ -181,6 +186,10 @@ div.section2{
 }
 div.section2 > div{
     display: flex;
+}
+div.section3{
+    background-image: url("bg.gif");
+    height: 300px;
 }
 div.half > * {
     width: 50%;
@@ -276,7 +285,7 @@ h1.title_banner:hover{
     animation-timing-function: ease;
 }
 
-div.footer{
+footer{
     color: #FFFFFF;
     font-weight: bolder;
     padding: 10px;
