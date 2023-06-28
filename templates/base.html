@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Site</title>
-  <link rel="stylesheet" href="static/style.css">
-</head>
+{% include 'head.html' %}
 
 <!-- <script src="index.js"></script> -->
 
@@ -22,12 +13,16 @@
   <div class="main">
     <div class="left">
       <nav class="navbar">
-        <div class="sidebar_gif" id="contact">
+        <div class="text_and_icon">
+          <a class = "sidebar_items" href="./login">Login</a>
+          <img src="static/login3.png" height="18px">
+        </div>
+        <div class="text_and_icon" id="contact">
           <a class="sidebar_items" href="#">Contact</a>
           <img src="/static/mail.gif" height="18px">
         </div>
         <a class="sidebar_items" href="#">Cosy Shack</a>
-        <div class="sidebar_gif" id="new">
+        <div class="text_and_icon" id="new">
           <a class="sidebar_items" href="./nft">Get NFT</a>
         </div>
 
@@ -43,7 +38,7 @@
       <div class="sound_control">
         <label for="volume">Volume</label>
         <input type="range" id="volume-slider" name="volume">
-        <div class="sidebar_gif">
+        <div class="text_and_icon">
           <button id="mute" onclick="mute()">Mute sound</button><img src="static/mute.png" height="30px">
         </div>
       </div>

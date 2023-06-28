@@ -1,0 +1,30 @@
+{% include 'head.html' %}
+<script src="{{url_for('static', filename='login.js')}}"></script>
+
+<div class="form">
+    <form>
+        <p>
+            This site may be accessed by authorized personnel only. Unaothrized entry may result in severe criminal
+            penalties under section 2 of the Criminal Justice (Offences Relating to Information Systems) Act 2017.
+            Offenders will be prosecuted to the maximum extent permissible under the law.
+        </p>
+        <div id="container">
+                <label>Username:
+                    <input id="username" type="text" list="usernames" placeholder="admin" />
+                    <datalist id="usernames">
+                        <option value="admin">admin</option>
+                        <option value="webmaster">webmaster</option>
+                        <option value="guest">guest</option>
+                        <option value="Bush Jr.">Bush Jr.</option>
+                    </datalist>
+                </label>
+                <label>Password:
+                    <input id="password" type="password">
+                </label>
+            <div id="buttons">
+                <button type="button" onclick="login()">Login</button>
+                <button type="button" onclick="history.back()">Return</button>
+            </div>
+        </div>
+    </form>
+</div>

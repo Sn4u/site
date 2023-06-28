@@ -13,7 +13,12 @@ def nft():
 
 @app.route("/guestbook")
 def guestbook():
-    return render_template("guestbook .html")
+    return render_template("guestbook.html")
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
 
 if __name__ == "__main__":
     extra_files = ["static/style.css", "templates/base.html"]
