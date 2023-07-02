@@ -112,7 +112,7 @@ function cycle_gif(name) {
     setInterval(function () { img.setAttribute("src", images[cycle_counter % images.length]); cycle_counter++ }, 1000)
 
 }
-cycle_gif("new")
+
 let spinners = new Array()
 for (let i = 1; i < 4; i++) {
     let spinner = document.getElementById("spinner_" + i)
@@ -220,5 +220,6 @@ function nord_speech() {
 window.onload = () => {
     nord_cycle_titles();
     nord_speech();
+    cycle_gif("new");
 } 
 

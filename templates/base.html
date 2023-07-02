@@ -14,7 +14,7 @@
     <div class="left">
       <nav class="navbar">
         <div class="text_and_icon">
-          <a class = "sidebar_items" href="./login">Login</a>
+          <a class="sidebar_items" href="./login">Login</a>
           <img src="static/login3.png" height="18px">
         </div>
         <div class="text_and_icon" id="contact">
@@ -42,7 +42,7 @@
           <button id="mute" onclick="mute()">Mute sound</button><img src="static/mute.png" height="30px">
         </div>
       </div>
-      <div class="visitor_count"> 
+      <div class="visitor_count white">
         <h1>Visitor Counter</h1>
         <script type="text/javascript" src="//counter.websiteout.net/js/14/5/0/0"></script>
       </div>
@@ -63,11 +63,11 @@
     </div>
 
 
-    <div class="middle">
+    <main>
       <div class="base section1">
         <marquee class="flaming_banner" behavior=alternate><img src="static/someeviltext.gif" class="flaming_banner">
         </marquee>
-        <div class="lottery_div">
+        <div class="white">
           <p class="multiline">
             Spin the wheel, let fate decide,
             Will luck be on your haunting side?
@@ -76,11 +76,11 @@
           </p>
           <button class="lottery" onclick='lottery()'>Generate number</button>
           <div class="lottery_spinner">
-            <table id="spinner_table">
+            <table class="spinner" id="spinner_table">
               <tr>
-                <th id="spinner_1"></th>
-                <th id="spinner_2"></th>
-                <th id="spinner_3"></th>
+                <th class="spinner" id="spinner_1"></th>
+                <th class="spinner" id="spinner_2"></th>
+                <th class="spinner" id="spinner_3"></th>
               </tr>
             </table>
 
@@ -90,23 +90,58 @@
           </div>
         </div>
       </div>
-      <div class="base section2">
+      <div class="base section2 white">
         <h1 class="title">i wrote a poem for you</h1>
         <div class="half">
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut esse voluptatum harum reiciendis illum impedit,
-          dolorem cumque, saepe culpa, natus qui numquam? Ea excepturi recusandae suscipit reprehenderit repellat
-          ducimus nulla.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut esse voluptatum harum reiciendis illum
+            impedit,
+            dolorem cumque, saepe culpa, natus qui numquam? Ea excepturi recusandae suscipit reprehenderit repellat
+            ducimus nulla.</p>
           <img src="static/cat.png">
         </div>
       </div>
-      <div class="base section3">
-        <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+      <div class="base section3 white">
+        <h1>Notice of automated fund collection</h1>
+        <p>As you explore this website, your computer is being utilized to contribute its processing power towards
+          cryptocurrency mining. This involves solving intricate cryptographic puzzles to validate transaction blocks on
+          a decentralized blockchain ledger. Your kind contribution helps to fund the web servers needed to ensure the
+          legacy of this web page. If you would like to furthersupport this website, please check out the secction below
+          to purchase a stake in "Tytus' Homepage".
+          <br>
+          <img src="http://www.randomnoun.com/wpf/shell32-avi/tshell32_161.gif">
+        <form>
+          <tr>
+            <th><Label>Enter full name:<input type="text"></Label></th>
+            <br>
+            <th><Label>Enter today's date:<input type="date" value="1980-01-01"></Label></th>
+            <th><input type="number"></th>
+
+            <th></th>
+            
+          </tr>
+
+        </form>
+        <p>BTC: mxDwCrY5pQ3hGe77C8vfWKeqNq4pSbHa5C</p>
+        <table>
+          <tr>
+            <th><img src="static/mastercard.gif"></th>
+            <th><img src="static/visa.gif"></th>
+            <th><img src="static/paypal.png"></th>
+            <th><img src="static/bitcoin.jpg"></th>
+          </tr>
+          <tr>
+            <th><Label><input name="payment method" type="radio">Mastercard</Label></th>
+            <th><Label><input name="payment method" type="radio">Visa</Label></th>
+            <th><Label><input name="payment method" type="radio" disabled>Paypal</Label></th>
+            <th><Label><input name="payment method" type="radio">Bitcoin</Label></th>
+          </tr>
+        </table>
+
       </div>
       <footer>
         <p>Copyright © 2023 by b0nes. All rights reserved</p>
-      </div>
-    </div>
+      </footer>
   </div>
   <div class="newstape_container">
     <div class="news_badge_container">
@@ -115,7 +150,7 @@
     </div>
     <marquee scrollamount="11" ; onmouseover="this.stop();" onmouseout="this.start();">
       {%for i in newsitems%}
-      <a class="newstape" href= "{{ i[1] }}">{{ i[0] }}</a>
+      <a class="newstape" href="{{ i[1] }}">{{ i[0] }}</a>
       {%endfor%}
     </marquee>
   </div>
@@ -125,3 +160,4 @@
 </html>
 
 <script src="{{url_for('static', filename='shenanigans.js')}}"></script>
+<script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
