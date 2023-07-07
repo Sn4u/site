@@ -31,7 +31,6 @@ marquee {
 
 div.newstape_container {
     background-color: #a0b0ef29;
-    ;
     display: flex;
     position: fixed;
     align-items: center;
@@ -311,6 +310,7 @@ div.text_and_icon {
 
 @keyframes glow {
     from {}
+
     to {
         filter: drop-shadow(10px 10px 14px #44d)
     }
@@ -338,6 +338,7 @@ form {
     padding: 10px;
     width: 500px;
 }
+
 div.form {
     display: flex;
     justify-content: center;
@@ -365,4 +366,52 @@ form>div {
 
 .white {
     color: white;
+}
+
+dialog.modal_div {
+    background-color: white;
+    margin: auto;
+    width: 75%;
+}
+
+button.primary {
+    background-color: palegreen;
+    border-radius: 100px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+    color: green;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+button.primary:hover {
+    box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+    transform: translateY(-2px);
+}
+
+.padded {
+    padding: 10px;
+}
+
+button.secondary {
+    color: gray;
+    text-decoration: none;
+    border: 0;
+    cursor: pointer;
+    background-color: transparent;
+}
+.inline{
+    display: inline-block;
+}
+dialog > label{
+    white-space: nowrap;
 }
