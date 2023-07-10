@@ -217,9 +217,39 @@ function nord_speech() {
     )
 }
 
+
+function AskCookies() {
+    const modal = document.getElementById("modal");
+    const cookies = document.cookie.split(';');
+    var showModal = true
+    cookies.every((cookie) => {
+        if (cookie.startsWith("cookieConsent") && cookie.split("=")[1] == "true") {
+            showModal = false; 
+            return false;
+        }
+        else {
+            return true;
+        }
+
+    })
+    if (showModal){
+        modal.show()
+        const background = document.getElementById("background");
+        background.classList.add('grayout');
+    }
+}
+
+function acceptCookies(){
+    const modal = document.getElementById("modal");
+    const background = document.getElementById("background");
+    background.classList.remove('grayout');
+    document.cookie = "cookieConsent=true; SameSite=Lax;"; 
+    modal.close()
+}
+
 window.onload = () => {
     nord_cycle_titles();
     nord_speech();
     cycle_gif("new");
+    AskCookies();
 } 
-

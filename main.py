@@ -22,4 +22,4 @@ def login():
 
 if __name__ == "__main__":
     extra_files = ["static/style.css", "templates/base.html"]
-    app.run(host='192.168.178.65', debug=True, extra_files=extra_files)
+    app.run(debug=True, extra_files=extra_files)

@@ -372,6 +372,7 @@ dialog.modal_div {
     background-color: white;
     margin: auto;
     width: 75%;
+    z-index: 2;
 }
 
 button.primary {
@@ -412,6 +413,22 @@ button.secondary {
 .inline{
     display: inline-block;
 }
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 dialog > label{
     white-space: nowrap;
 }
+.grayout {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+ }

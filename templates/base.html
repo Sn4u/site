@@ -3,7 +3,7 @@
 <!-- <script src="index.js"></script> -->
 
 <body>
-  <dialog open class="modal_div padded">
+  <dialog class="modal_div padded center" id="modal">
     <h1>We value your privacy</h1>
     <p>By checking the options below, you irrevocably agree to the following website features:</p>
     <label>Cross-Site Tracking<input type="checkbox"></label>
@@ -24,161 +24,164 @@
     <br>
     <br>
     <div class="inline">
-      <button class="primary">Accept all</button>
-      <button class="secondary">Save Preferences</button>
+      <button onclick="acceptCookies()" class="primary">Accept all</button>
+      <button onclick="acceptCookies()" class="secondary">Save Preferences</button>
     </div>
   </dialog>
-
-  <div class="title">
-    <img src="static/eye.gif">
-    <h1 class="title_banner">Tytus' Homepage</h1>
-    <img src="static/eye.gif">
-  </div>
-
-
-  <div class="main">
-    <div class="left">
-      <nav class="navbar">
-        <div class="text_and_icon">
-          <a class="sidebar_items" href="./login">Login</a>
-          <img src="static/login3.png" height="18px">
-        </div>
-        <div class="text_and_icon" id="contact">
-          <a class="sidebar_items" href="#">Contact</a>
-          <img src="/static/mail.gif" height="18px">
-        </div>
-        <a class="sidebar_items" href="#">Cosy Shack</a>
-        <div class="text_and_icon" id="new">
-          <a class="sidebar_items" href="./nft">Get NFT</a>
-        </div>
+  <div id="background">
+    <div class="title">
+      <img src="static/eye.gif">
+      <h1 class="title_banner">Tytus' Homepage</h1>
+      <img src="static/eye.gif">
+    </div>
 
 
-        <!-- <div id="clips" class="sidebar_image_container">
+    <div class="main">
+      <div class="left">
+        <nav class="navbar">
+          <div class="text_and_icon">
+            <a class="sidebar_items" href="./login">Login</a>
+            <img src="static/login3.png" height="18px">
+          </div>
+          <div class="text_and_icon" id="contact">
+            <a class="sidebar_items" href="#">Contact</a>
+            <img src="/static/mail.gif" height="18px">
+          </div>
+          <a class="sidebar_items" href="#">Cosy Shack</a>
+          <div class="text_and_icon" id="new">
+            <a class="sidebar_items" href="./nft">Get NFT</a>
+          </div>
+
+
+          <!-- <div id="clips" class="sidebar_image_container">
               <a class="sidebar_items sidebar_image" href="#">Epic Clips</a>
             </div> -->
 
-        <div id="guestbook" class="sidebar_image_container">
-          <a class="sidebar_items sidebar_image" href="#">Sign The Guestbook</a>
-        </div>
-      </nav>
-      <div class="sound_control">
-        <label for="volume">Volume</label>
-        <input type="range" id="volume-slider" name="volume">
-        <div class="text_and_icon">
-          <button id="mute" onclick="mute()">Mute sound</button><img src="static/mute.png" height="30px">
-        </div>
-      </div>
-      <div class="visitor_count white">
-        <h1>Visitor Counter</h1>
-        <script type="text/javascript" src="//counter.websiteout.net/js/14/5/0/0"></script>
-      </div>
-      <div id="nord" class="nord">
-        <a id="nord_link" href="https://nordvpn.com/">
-          <div id="nord_div"></div>
-          <img src="/static/nord.png">
-          <div class="sidebyside">
-            <img src="static/warning.gif">
-            <p>Your IP address and personal information has been exposed!</p>
-            <img src="static/warning.gif">
+          <div id="guestbook" class="sidebar_image_container">
+            <a class="sidebar_items sidebar_image" href="#">Sign The Guestbook</a>
           </div>
-          <p>Your ip: <b id="ip">{{ip}}</b></p>
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <main>
-      <div class="base section1">
-        <marquee class="flaming_banner" behavior=alternate><img src="static/someeviltext.gif" class="flaming_banner">
-        </marquee>
-        <div class="white">
-          <p class="multiline">
-            Spin the wheel, let fate decide,
-            Will luck be on your haunting side?
-            A number evil, steeped in lore,
-            Unlock its secret, to the dungeon's door.
-          </p>
-          <button class="lottery" onclick='lottery()'>Generate number</button>
-          <div class="lottery_spinner">
-            <table class="spinner" id="spinner_table">
-              <tr>
-                <th class="spinner" id="spinner_1"></th>
-                <th class="spinner" id="spinner_2"></th>
-                <th class="spinner" id="spinner_3"></th>
-              </tr>
-            </table>
-
-          </div>
-          <div>
-
+        </nav>
+        <div class="sound_control">
+          <label for="volume">Volume</label>
+          <input type="range" id="volume-slider" name="volume">
+          <div class="text_and_icon">
+            <button id="mute" onclick="mute()">Mute sound</button><img src="static/mute.png" height="30px">
           </div>
         </div>
-      </div>
-      <div class="base section2 white">
-        <h1 class="title">i wrote a poem for you</h1>
-        <div class="half">
-
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut esse voluptatum harum reiciendis illum
-            impedit,
-            dolorem cumque, saepe culpa, natus qui numquam? Ea excepturi recusandae suscipit reprehenderit repellat
-            ducimus nulla.</p>
-          <img src="static/cat.png">
+        <div class="visitor_count white">
+          <h1>Visitor Counter</h1>
+          <script type="text/javascript" src="//counter.websiteout.net/js/14/5/0/0"></script>
         </div>
+        <div id="nord" class="nord">
+          <a id="nord_link" href="https://nordvpn.com/">
+            <div id="nord_div"></div>
+            <img src="/static/nord.png">
+            <div class="sidebyside">
+              <img src="static/warning.gif">
+              <p>Your IP address and personal information has been exposed!</p>
+              <img src="static/warning.gif">
+            </div>
+            <p>Your ip: <b id="ip">{{ip}}</b></p>
+          </a>
+
+        </div>
+
       </div>
-      <div class="base section3 white">
-        <h1>Notice of automated fund collection</h1>
-        <p>As you explore this website, your computer is being utilized to contribute its processing power towards
-          cryptocurrency mining. This involves solving intricate cryptographic puzzles to validate transaction blocks on
-          a decentralized blockchain ledger. Your kind contribution helps to fund the web servers needed to ensure the
-          legacy of this web page. If you would like to furthersupport this website, please check out the secction below
-          to purchase a stake in "Tytus' Homepage".
-          <br>
-          <img src="http://www.randomnoun.com/wpf/shell32-avi/tshell32_161.gif">
-        <form>
-          <tr>
-            <th><Label>Enter full name:<input type="text"></Label></th>
+
+
+      <main>
+        <div class="base section1">
+          <marquee class="flaming_banner" behavior=alternate><img src="static/someeviltext.gif" class="flaming_banner">
+          </marquee>
+          <div class="white">
+            <p class="multiline">
+              Spin the wheel, let fate decide,
+              Will luck be on your haunting side?
+              A number evil, steeped in lore,
+              Unlock its secret, to the dungeon's door.
+            </p>
+            <button class="lottery" onclick='lottery()'>Generate number</button>
+            <div class="lottery_spinner">
+              <table class="spinner" id="spinner_table">
+                <tr>
+                  <th class="spinner white" id="spinner_1"></th>
+                  <th class="spinner white" id="spinner_2"></th>
+                  <th class="spinner white" id="spinner_3"></th>
+                </tr>
+              </table>
+
+            </div>
+            <div>
+
+            </div>
+          </div>
+        </div>
+        <div class="base section2 white">
+          <h1 class="title">i wrote a poem for you</h1>
+          <div class="half">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut esse voluptatum harum reiciendis illum
+              impedit,
+              dolorem cumque, saepe culpa, natus qui numquam? Ea excepturi recusandae suscipit reprehenderit repellat
+              ducimus nulla.</p>
+            <img src="static/cat.png">
+          </div>
+        </div>
+        <div class="base section3 white">
+          <h1>Notice of automated fund collection</h1>
+          <p>As you explore this website, your computer is being utilized to contribute its processing power towards
+            cryptocurrency mining. This involves solving intricate cryptographic puzzles to validate transaction blocks
+            on
+            a decentralized blockchain ledger. Your kind contribution helps to fund the web servers needed to ensure the
+            legacy of this web page. If you would like to furthersupport this website, please check out the secction
+            below
+            to purchase a stake in "Tytus' Homepage".
             <br>
-            <th><Label>Enter today's date:<input type="date" value="1980-01-01"></Label></th>
-            <th><input type="number"></th>
+            <img src="http://www.randomnoun.com/wpf/shell32-avi/tshell32_161.gif">
+          <form>
+            <tr>
+              <th><Label>Enter full name:<input type="text"></Label></th>
+              <br>
+              <th><Label>Enter today's date:<input type="date" value="1980-01-01"></Label></th>
+              <th><input type="number"></th>
 
-            <th></th>
+              <th></th>
 
-          </tr>
+            </tr>
 
-        </form>
-        <p>BTC: mxDwCrY5pQ3hGe77C8vfWKeqNq4pSbHa5C</p>
-        <table>
-          <tr>
-            <th><img src="static/mastercard.gif"></th>
-            <th><img src="static/visa.gif"></th>
-            <th><img src="static/paypal.png"></th>
-            <th><img src="static/bitcoin.jpg"></th>
-          </tr>
-          <tr>
-            <th><Label><input name="payment method" type="radio">Mastercard</Label></th>
-            <th><Label><input name="payment method" type="radio">Visa</Label></th>
-            <th><Label><input name="payment method" type="radio" disabled>Paypal</Label></th>
-            <th><Label><input name="payment method" type="radio">Bitcoin</Label></th>
-          </tr>
-        </table>
+          </form>
+          <p>BTC: mxDwCrY5pQ3hGe77C8vfWKeqNq4pSbHa5C</p>
+          <table>
+            <tr>
+              <th><img src="static/mastercard.gif"></th>
+              <th><img src="static/visa.gif"></th>
+              <th><img src="static/paypal.png"></th>
+              <th><img src="static/bitcoin.jpg"></th>
+            </tr>
+            <tr>
+              <th><Label><input name="payment method" type="radio">Mastercard</Label></th>
+              <th><Label><input name="payment method" type="radio">Visa</Label></th>
+              <th><Label><input name="payment method" type="radio" disabled>Paypal</Label></th>
+              <th><Label><input name="payment method" type="radio">Bitcoin</Label></th>
+            </tr>
+          </table>
 
-      </div>
-      <footer>
-        <p>Copyright © 2023 by b0nes. All rights reserved</p>
-      </footer>
-  </div>
-  <div class="newstape_container">
-    <div class="news_badge_container">
-      <img src="{{url_for('static', filename='news.gif')}}" margin="5px">
-      <h4 id="time"> </h4>
+        </div>
+        <footer>
+          <p>Copyright © 2023 by b0nes. All rights reserved</p>
+        </footer>
     </div>
-    <marquee scrollamount="11" ; onmouseover="this.stop();" onmouseout="this.start();">
-      {%for i in newsitems%}
-      <a class="newstape" href="{{ i[1] }}">{{ i[0] }}</a>
-      {%endfor%}
-    </marquee>
+    <div class="newstape_container">
+      <div class="news_badge_container">
+        <img src="{{url_for('static', filename='news.gif')}}" margin="5px">
+        <h4 id="time"> </h4>
+      </div>
+      <marquee scrollamount="11" ; onmouseover="this.stop();" onmouseout="this.start();">
+        {%for i in newsitems%}
+        <a class="newstape" href="{{ i[1] }}">{{ i[0] }}</a>
+        {%endfor%}
+      </marquee>
+    </div>
   </div>
 
 </body>
